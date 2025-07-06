@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyjtlutyff7ve"]
+
+[ext_resource type="Texture2D" uid="uid://8cq4xmq07spr" path="res://assets/spritesheet.png" id="1_iats5"]
+
+[node name="Black Cat" type="Sprite2D"]
+texture = ExtResource("1_iats5")
+region_enabled = true
+region_rect = Rect2(0, 0, 512, 512)

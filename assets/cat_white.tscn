@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq8j4ivgd4exy"]
+
+[ext_resource type="Texture2D" uid="uid://8cq4xmq07spr" path="res://assets/spritesheet.png" id="1_q3oqd"]
+
+[node name="White Cat2" type="Sprite2D"]
+texture = ExtResource("1_q3oqd")
+region_enabled = true
+region_rect = Rect2(0, 512, 512, 512)
