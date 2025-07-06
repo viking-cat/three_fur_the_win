@@ -5,4 +5,4 @@
 [node name="Black Cat" type="Sprite2D"]
 texture = ExtResource("1_iats5")
 region_enabled = true
-region_rect = Rect2(0, 0, 512, 512)
+region_rect = Rect2(0, 32, 32, 32)

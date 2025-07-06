@@ -15,22 +15,21 @@ func _ready():
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		# Debug input
-		print("click")
+		print("square click")
 		
 		# Get position & cell
 		var world_pos = get_global_mouse_position()
 		var tile_coords = tilemap.local_to_map(world_pos)
 		var tile_data = tilemap.get_cell_tile_data(tile_coords)
 
-		# Instance sprite2D of cat
-		cats.append(cat_black.instantiate())
-		print("cats size ", cats.size())
-		print("tile coords ", tilemap.map_to_local(tile_coords))
-		
-		cats.get(cats.size() - 1).position = tilemap.map_to_local(tile_coords)
-		add_child(cats.get(cats.size() - 1))
-
 		if tile_data:
-			print("Clicked on tile at ", tile_coords)
+			print("Clicked on SQUARE tile at ", tile_coords)
+			# Instance sprite2D of cat
+			cats.append(cat_black.instantiate())
+			print("cats size ", cats.size())
+			print("tile coords ", tilemap.map_to_local(tile_coords))
+			
+			cats.get(cats.size() - 1).position = tilemap.map_to_local(tile_coords)
+			add_child(cats.get(cats.size() - 1))
 		else:
-			print("No tile at clicked position")
+			print("Clicked on EMPTY tile at ", tile_coords)
