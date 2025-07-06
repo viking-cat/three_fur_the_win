@@ -10,7 +10,15 @@ func _ready():
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		print("hello")
+		print("click")
+		var world_pos = get_global_mouse_position()
+		var tile_coords = tilemap.local_to_map(world_pos)
+		var tile_data = tilemap.get_cell_tile_data(tile_coords)
+
+		if tile_data:
+			print("Clicked on tile at ", tile_coords)
+		else:
+			print("No tile at clicked position")
 #    if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 #        var click_pos = event.position
 #        var world_pos = get_viewport().get_camera_2d().screen_to_world(click_pos)
