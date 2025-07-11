@@ -6,6 +6,9 @@ extends Node2D
 @onready var cat_black := preload("res://assets/cat_black.tscn")
 @onready var cat_white := preload("res://assets/cat_white.tscn")
 @onready var cats: Array[Node2D] = []
+@onready var p1Label := $"Camera2D/P1 Tittle"
+@onready var p2Label := $"Camera2D/P2 Tittle"
+@onready var p1Turn := true
 
 # _func = built-in functions
 func _ready():
@@ -22,10 +25,16 @@ func _unhandled_input(event):
 		var tile_coords = tilemap.local_to_map(world_pos)
 		var tile_data = tilemap.get_cell_tile_data(tile_coords)
 
+		# Check if cell in tilemap contains anything
 		if tile_data:
 			print("Clicked on SQUARE tile at ", tile_coords)
 			# Instance sprite2D of cat
-			cats.append(cat_black.instantiate())
+			if p1Turn:
+				cats.append(cat_black.instantiate())
+				p1Turn = false
+			else:
+				cats.append(cat_white.instantiate())
+				p1Turn = true
 			print("cats size ", cats.size())
 			print("tile coords ", tilemap.map_to_local(tile_coords))
 			
