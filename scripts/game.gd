@@ -62,5 +62,29 @@ func _unhandled_input(event):
 			print("Clicked on EMPTY tile at ", tilemapCoords)
 
 func checkWinner() :
+	var temp0
+	var temp1
+	var temp2
 	
-	print("Check winner")
+	# Checking rows
+	for y in range(3):
+		temp0 = getCellDataPlayer(Vector2i(0,y))
+		temp1 = getCellDataPlayer(Vector2i(1,y))
+		temp2 = getCellDataPlayer(Vector2i(2,y))
+		if  temp0 == temp1 &&  temp1 == temp2 && temp0 != -1:
+			print(cellDataWrappers[Vector2i(0,y)].player, " wins!")
+
+	# Checking columns
+	for x in range(3):
+		temp0 = getCellDataPlayer(Vector2i(x,0))
+		temp1 = getCellDataPlayer(Vector2i(x,1))
+		temp2 = getCellDataPlayer(Vector2i(x,2))
+		if  temp0 == temp1 &&  temp1 == temp2 && temp0 != -1:
+			print(cellDataWrappers[Vector2i(x,0)].player, " wins!")
+
+func getCellDataPlayer(cell):
+	if cell in cellDataWrappers:
+		return cellDataWrappers[cell].player
+	else:
+		return -1
+	
