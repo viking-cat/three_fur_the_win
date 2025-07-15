@@ -81,7 +81,21 @@ func checkWinner() :
 		temp2 = getCellDataPlayer(Vector2i(x,2))
 		if  temp0 == temp1 &&  temp1 == temp2 && temp0 != -1:
 			print(cellDataWrappers[Vector2i(x,0)].player, " wins!")
-
+		
+	# Checking top left to bottom right diagonal
+	temp0 = getCellDataPlayer(Vector2i(0,0))
+	temp1 = getCellDataPlayer(Vector2i(1,1))
+	temp2 = getCellDataPlayer(Vector2i(2,2))
+	if  temp0 == temp1 &&  temp1 == temp2 && temp0 != -1:
+		print(cellDataWrappers[Vector2i(0,0)].player, " wins!")
+	
+	# Checking bottom left to top right diagonal
+	temp0 = getCellDataPlayer(Vector2i(0,2))
+	temp1 = getCellDataPlayer(Vector2i(1,1))
+	temp2 = getCellDataPlayer(Vector2i(2,0))
+	if  temp0 == temp1 &&  temp1 == temp2 && temp0 != -1:
+		print(cellDataWrappers[Vector2i(0,2)].player, " wins!")
+		
 func getCellDataPlayer(cell):
 	if cell in cellDataWrappers:
 		return cellDataWrappers[cell].player
